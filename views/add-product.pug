@@ -1,0 +1,15 @@
+extends layouts/main-layout.pug 
+block content
+    main 
+        form.product-form(action="/admin/add-product", method="POST") 
+            .form-control 
+                label.title Title 
+                input(type="text", name="title" id="title")
+
+            button.btn(type="submit") Add Product
+    if prods.length > 0 
+        .cart 
+            h2 Product has been added
+        each i in prods 
+            p #{i.title}
+                

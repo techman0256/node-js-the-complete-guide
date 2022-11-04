@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title #{docTitle}
+        link(rel="stylesheet", href="/public/css/main.css")
+        link(rel="stylesheet", href="/public /css/product.css")
+    body
+        header.main-header
+            nav.main-header__nav
+                ul.main-header__item-list
+                    li.main-header__item
+                        a.active(href="/") Shop
+                    li.main-header__item
+                        a(href="/admin/add-product") Add Product
+        main
+            if prods.length > 0
+                .grid
+                    each product in prods
+                        article.product-item 
+                            header.card__header   
+                                h1.product__title  #{product.title}
+                            .card_image 
+                                img(src="data:image/jpeg;base64,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", alt="")
+                            .card__content 
+                                h2.product__price $19.99
+                                p.product__description A very interesting book about so many even more interesting things!
+                            .card__action   
+                                button.btn Add to Cart
+            else 
+                h1 No Products
